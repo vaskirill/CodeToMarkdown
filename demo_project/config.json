@@ -1,0 +1,21 @@
+{
+  "app_name": "Demo Application",
+  "version": "1.0.0",
+  "debug": false,
+  "port": 8080,
+  "host": "localhost",
+  "database_url": "sqlite:///demo.db",
+  "log_level": "INFO",
+  "max_workers": 4,
+  "timeout": 30,
+  "features": {
+    "enable_caching": true,
+    "enable_metrics": false,
+    "enable_debug_toolbar": false
+  },
+  "paths": {
+    "data_dir": "./data",
+    "log_dir": "./logs",
+    "temp_dir": "./temp"
+  }
+}

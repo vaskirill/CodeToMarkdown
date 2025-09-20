@@ -1,0 +1,352 @@
+Metadata-Version: 2.4
+Name: code-to-markdown
+Version: 1.0.0
+Summary: Desktop GUI tool to convert project source code to Markdown
+Author: Code to Markdown Team
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: PySide6>=6.5.0
+Requires-Dist: pathspec>=0.11.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-qt>=4.2.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: PyInstaller>=5.0.0; extra == "dev"
+
+# Code to Markdown
+
+Настольное GUI-приложение для конвертации исходного кода проекта в единый Markdown-файл с аккуратными комментариями и оглавлением.
+
+## Возможности
+
+- 🗂️ **Выбор папки проекта** - интуитивный выбор папки с исходным кодом
+- 📝 **Автоматические аннотации** - умная генерация описаний файлов на основе AST-анализа и эвристик
+- 🔍 **Предпросмотр** - быстрый предпросмотр результата перед генерацией
+- 📊 **Подробная статистика** - информация о типах файлов, размерах и метаданных
+- 🚫 **Умная фильтрация** - поддержка .gitignore и исключение бинарных файлов
+- 🌐 **Локализация** - интерфейс на русском языке с возможностью расширения
+- ⚡ **Производительность** - потоковая обработка больших проектов
+
+## Технологический стек
+
+- **Python 3.11+** - основной язык программирования
+- **PySide6** - современный GUI фреймворк на основе Qt
+- **PyInstaller** - сборка в исполняемый .exe файл
+- **pathspec** - поддержка .gitignore файлов
+- **ruff + black** - линтинг и форматирование кода
+- **pytest** - тестирование
+
+## Установка и запуск
+
+### Для разработчиков
+
+1. **Клонирование репозитория**
+   ```bash
+   git clone <repository-url>
+   cd code-to-md
+   ```
+
+2. **Создание виртуального окружения**
+   ```bash
+   python -m venv venv
+   # Windows
+   venv\Scripts\activate
+   # Linux/macOS
+   source venv/bin/activate
+   ```
+
+3. **Установка зависимостей**
+   ```bash
+   pip install -e .
+   pip install -e ".[dev]"
+   ```
+
+4. **Запуск приложения**
+   ```bash
+   python -m app.main
+   ```
+
+### Для пользователей
+
+1. **Скачайте готовый .exe файл** из раздела Releases
+2. **Запустите CodeToMarkdown.exe**
+3. **Выберите папку с проектом** и настройте параметры
+4. **Нажмите "Создать Markdown"** для генерации файла
+
+## Сборка исполняемого файла
+
+### Требования
+
+- Python 3.11+
+- PyInstaller
+- Все зависимости проекта
+
+### Команда сборки
+
+```bash
+pyinstaller app/main.py --name CodeToMarkdown --onefile --noconsole --add-data "app/i18n.json;app"
+```
+
+### Альтернативная сборка с иконкой
+
+```bash
+pyinstaller app/main.py --name CodeToMarkdown --onefile --noconsole --icon=app/icon.ico --add-data "app/i18n.json;app"
+```
+
+## Использование
+
+### Основной рабочий процесс
+
+1. **Запустите приложение**
+2. **Выберите папку проекта** с помощью кнопки "Выбрать папку"
+3. **Настройте параметры:**
+   - ☑️ Учитывать .gitignore
+   - ☑️ Включать большие файлы (>5 МБ)
+   - ☑️ Включать конфиги/разметку
+4. **Просмотрите предпросмотр** (опционально)
+5. **Нажмите "Создать Markdown"**
+6. **Выберите место сохранения** файла
+7. **Дождитесь завершения** генерации
+
+### Поддерживаемые типы файлов
+
+#### Код
+- Python (.py)
+- JavaScript (.js, .jsx)
+- TypeScript (.ts, .tsx)
+- Java (.java)
+- C/C++ (.c, .cpp, .h, .hpp)
+- Go (.go)
+- Rust (.rs)
+- PHP (.php)
+- Ruby (.rb)
+- Swift (.swift)
+- Kotlin (.kt)
+- C# (.cs)
+
+#### Скрипты
+- Shell (.sh)
+- PowerShell (.ps1)
+- Batch (.bat, .cmd)
+
+#### Конфигурация и разметка
+- JSON (.json)
+- YAML (.yaml, .yml)
+- TOML (.toml)
+- INI (.ini)
+- Environment (.env)
+- Markdown (.md)
+- Text (.txt)
+- Config (.cfg)
+
+#### Веб
+- HTML (.html)
+- CSS (.css, .scss, .sass)
+- Less (.less)
+
+### Исключаемые папки
+
+По умолчанию исключаются следующие папки:
+- `.git`, `.hg`, `.svn` - системы контроля версий
+- `__pycache__`, `.mypy_cache`, `.pytest_cache` - кэши Python
+- `node_modules`, `dist`, `build`, `out` - артефакты сборки
+- `.venv`, `venv` - виртуальные окружения
+- `.idea`, `.vscode` - настройки IDE
+
+## Структура проекта
+
+```
+code-to-markdown/
+├── app/                      # Основной пакет приложения
+│   ├── __init__.py
+│   ├── main.py              # Точка входа
+│   ├── ui.py                # GUI интерфейс
+│   ├── worker.py            # Фоновые задачи
+│   ├── md_builder.py        # Генератор Markdown
+│   ├── file_discovery.py    # Поиск и фильтрация файлов
+│   ├── annotations.py       # Генерация аннотаций
+│   ├── preview.py           # Предпросмотр
+│   ├── config.py            # Управление конфигурацией
+│   ├── i18n.py              # Локализация
+│   └── logging_setup.py     # Настройка логирования
+├── tests/                   # Тесты
+│   ├── test_file_discovery.py
+│   ├── test_annotations.py
+│   └── test_md_builder.py
+├── demo_project/            # Демонстрационный проект
+│   ├── main.py
+│   ├── utils/
+│   ├── config/
+│   ├── tests/
+│   └── static/
+├── pyproject.toml           # Конфигурация проекта
+└── README.md               # Документация
+```
+
+## Конфигурация
+
+### Файл конфигурации
+
+Приложение сохраняет настройки в `%APPDATA%/CodeToMarkdown/config.json`:
+
+```json
+{
+  "last_project_path": "C:\\Projects\\MyProject",
+  "include_gitignore": true,
+  "include_large_files": false,
+  "include_config_files": true,
+  "max_file_size_mb": 5,
+  "window_geometry": "...",
+  "splitter_state": "..."
+}
+```
+
+### Переменные окружения
+
+- `DEMO_DEBUG=true` - включить режим отладки
+- `LOG_LEVEL=INFO` - уровень логирования
+
+## Логирование
+
+Логи сохраняются в:
+- **Windows**: `%USERPROFILE%/CodeToMarkdown/logs/app.log`
+- **Linux/macOS**: `~/.local/share/CodeToMarkdown/logs/app.log`
+
+Настройки логирования:
+- Ротация файлов (1 МБ × 3 файла)
+- Уровни: INFO, WARNING, ERROR
+- Кодировка: UTF-8
+
+## Тестирование
+
+### Запуск тестов
+
+```bash
+# Все тесты
+pytest
+
+# Конкретный модуль
+pytest tests/test_file_discovery.py
+
+# С покрытием
+pytest --cov=app
+
+# С подробным выводом
+pytest -v
+```
+
+### Тестовые сценарии
+
+1. **Базовый путь**: выбор папки → предпросмотр → создание Markdown
+2. **.gitignore**: проверка исключения файлов согласно .gitignore
+3. **Большие файлы**: обработка файлов >5 МБ
+4. **Кодировки**: чтение файлов в UTF-8 и Latin-1
+5. **AST-анализ**: генерация аннотаций для Python файлов
+
+## Разработка
+
+### Установка зависимостей для разработки
+
+```bash
+pip install -e ".[dev]"
+```
+
+### Линтинг и форматирование
+
+```bash
+# Ruff (быстрый линтер)
+ruff check app/ tests/
+
+# Black (форматирование)
+black app/ tests/
+
+# MyPy (проверка типов)
+mypy app/
+```
+
+### Структура кода
+
+- **Модульность**: каждый компонент в отдельном файле
+- **Типизация**: использование type hints
+- **Документация**: docstrings для всех публичных функций
+- **Обработка ошибок**: graceful handling с логированием
+
+## Производительность
+
+### Рекомендации
+
+- **Малые проекты** (<100 файлов): мгновенная обработка
+- **Средние проекты** (100-1000 файлов): <10 секунд
+- **Большие проекты** (1000+ файлов): <30 секунд
+
+### Оптимизации
+
+- Потоковое чтение файлов
+- Ленивая загрузка контента
+- Кэширование результатов
+- Параллельная обработка
+
+## Устранение неполадок
+
+### Частые проблемы
+
+1. **Приложение не запускается**
+   - Проверьте версию Python (требуется 3.11+)
+   - Установите зависимости: `pip install -e .`
+
+2. **Ошибки чтения файлов**
+   - Проверьте права доступа к папке
+   - Убедитесь, что файлы не заблокированы
+
+3. **Медленная обработка**
+   - Отключите "Включать большие файлы"
+   - Проверьте .gitignore на исключение ненужных папок
+
+4. **Проблемы с кодировкой**
+   - Файлы автоматически читаются в UTF-8, затем Latin-1
+   - Проверьте логи для деталей ошибок
+
+### Логи и отладка
+
+```bash
+# Просмотр логов
+tail -f ~/.local/share/CodeToMarkdown/logs/app.log
+
+# Запуск с отладкой
+DEMO_DEBUG=true python -m app.main
+```
+
+## Лицензия
+
+MIT License - см. файл LICENSE для деталей.
+
+## Вклад в проект
+
+1. Форкните репозиторий
+2. Создайте ветку для новой функции
+3. Внесите изменения с тестами
+4. Запустите линтеры и тесты
+5. Создайте Pull Request
+
+## Поддержка
+
+- **Issues**: GitHub Issues для багов и предложений
+- **Discussions**: GitHub Discussions для вопросов
+- **Email**: [ваш-email@example.com]
+
+## Changelog
+
+### v1.0.0 (2024-01-XX)
+- Первый релиз
+- Поддержка основных языков программирования
+- GUI интерфейс на PySide6
+- Автоматическая генерация аннотаций
+- Поддержка .gitignore
+- Предпросмотр результата
+- Локализация на русском языке
+
+---
+
+**Code to Markdown** - превратите ваш код в красивую документацию! 📚✨
