@@ -1,5 +1,3 @@
-# Code to Markdown
-
 [![CI](https://github.com/kirill-vasilev/code-to-markdown/workflows/CI/badge.svg)](https://github.com/kirill-vasilev/code-to-markdown/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -7,18 +5,54 @@
 
 > **Transform your source code into beautiful, well-documented Markdown files with intelligent annotations and project structure visualization.**
 
-Code to Markdown is a powerful desktop GUI application that converts your project's source code into comprehensive Markdown documentation. It automatically generates intelligent annotations, creates table of contents, and provides detailed project statistics.
+<img width="316" height="326" alt="LOGO" src="https://github.com/user-attachments/assets/f498027a-bd04-4dcb-a57d-10f5815b0462" />
 
-## ✨ Features
 
-- 🗂️ **Smart Project Discovery** - Automatically scans and filters project files
-- 📝 **Intelligent Annotations** - AST-based analysis with heuristic descriptions
-- 🔍 **Live Preview** - Real-time preview of generated documentation
-- 📊 **Detailed Statistics** - File types, sizes, and project metrics
-- 🚫 **Smart Filtering** - .gitignore support and binary file exclusion
-- 🌐 **Internationalization** - Russian/English interface support
-- ⚡ **High Performance** - Optimized for large projects (1000+ files)
-- 🎨 **Modern UI** - Clean, intuitive interface built with PySide6
+## Code to Markdown — ваш умный помощник для wibe-кодинга и общения с нейросетями 🚀
+
+Преобразуйте свой исходный код в красивые, структурированные и понятные Markdown-файлы.
+Code to Markdown превращает любой проект в наглядную документацию с аннотациями, статистикой и визуализацией — идеально для совместной работы и получения обратной связи от нейронных сетей.
+
+✨ Почему это удобно именно для wibe-кодинга?
+🧠 Готовьте код так, чтобы его было легко показывать нейросетям и коллегам.
+🤖 Получайте качественный фидбек от AI-ассистентов: структурированные аннотации делают ваш проект прозрачным для анализа.
+🔄 Экспериментируйте быстрее — смотрите, как разные нейросети «видят» ваш проект и что советуют.
+📚 Используйте Markdown как универсальный формат для общения: легко делиться, редактировать и комментировать.
+
+## 🌟 Функции
+
+🗂️ Автоматическое сканирование структуры, фильтрация по .gitignore
+🚫 Умная фильтрация — исключение лишних или бинарных файлов
+⚡ Оптимизация для больших проектов — справляется даже с 1000+ файлов
+🎨 Современный GUI — красивый, интуитивный интерфейс на PySide6
+
+## 🏆 Итог
+
+Code to Markdown — это не просто генератор документации.
+Это инструмент для продуктивного wibe-кодинга, который превращает ваш проект в удобный, визуально понятный «разговорный формат» для любых нейросетей и коллег.
+
+## Code to Markdown — your smart assistant for vibe-coding and interacting with neural networks 🚀
+
+Transform your source code into beautiful, structured, and easy-to-read Markdown files.
+Code to Markdown turns any project into clear documentation with annotations, statistics, and visualization — perfect for collaboration and getting feedback from neural networks.
+
+✨ Why is this especially useful for vibe-coding?
+🧠 Prepare your code so it’s easy to show to neural networks and colleagues.
+🤖 Get quality feedback from AI assistants: structured annotations make your project transparent for analysis.
+🔄 Experiment faster — see how different neural networks “perceive” your project and what they suggest.
+📚 Use Markdown as a universal communication format: easy to share, edit, and comment on.
+
+## 🌟 Features
+
+🗂️ Automatic project structure scanning, with .gitignore support
+🚫 Smart filtering — excluding unnecessary or binary files
+⚡ Optimized for large projects — handles even 1000+ files
+🎨 Modern GUI — sleek, intuitive interface built with PySide6
+
+## 🏆 Bottom line
+
+Code to Markdown is more than just a documentation generator.
+It’s a tool for productive vibe-coding that turns your project into a convenient, visually clear “conversational format” for any neural networks and colleagues.
 
 ## 🚀 Quick Start
 
@@ -58,8 +92,8 @@ python -m src.main
 
 ## 📸 Screenshots
 
-<!-- TODO: Add screenshots of the application interface -->
-*Screenshots will be added here showing the main interface, preview window, and generated documentation.*
+<img width="2170" height="1460" alt="image" src="https://github.com/user-attachments/assets/a35c1374-70ec-4ed7-9a59-dc6699e6c81c" />
+
 
 ## 🛠️ Configuration
 
